@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto Russia</title>
+</head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="Место Россия" />
+        </header>
+        <main class="main">
+            <section class="profile section-inner">
+                <img class="profile__avatar-thumb" src="<%=require('./images/avatar.jpg')%>" alt="фото профиля" />
+                <div class="profile__info">
+                    <h1 class="profile__name">Алишер</h1>
+                    <p class="profile__description">Совсем ничего не понимает </p>
+                    <button class="profile__edit-button button" type="button"
+                        aria-label="Редактировать Профиль"></button>
+                </div>
+                <button class="profile__add-button button" type="button" aria-label="Добавить"></button>
+            </section>
+
+            <section class="elements section-inner">
+                <ul class="elements__list">
+                    <!-- ! место карточек -->
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy;&nbsp;2022 Алишер Абдурахманов</p>
+        </footer>
+    </div>
+
+    <!-- !попап добавления карточки -->
+    <div class="popup  popup_type_add-card">
+        <div class="popup__container">
+            <button class="popup__close-button button" type="button" aria-label="Закрыть модальное окно"></button>
+            <form class="popup__form popup__сard " name="add_card_form" novalidate>
+                <fieldset class="popup__fieldset">
+                    <h2 class="popup__title">Новое место</h2>
+                    <input class="popup__input popup__input_type_title" type="text" id="title-input" name="title"
+                        value="" placeholder="Название" required minlength="2" maxlength="30"
+                        pattern="^[a-zA-Zа-яА-Я-\s]+$" data-error-message="Разрешены только латинские и русские буквы,
+                        пробелы и тире">
+                    <span class="popup__input_error title-input-error"></span>
+                    <input class="popup__input popup__input_type_link" type="url" id="url-input" name="link"
+                        placeholder="Ссылка на картинку" required data-error-message="Введите ссылку на картинку">
+                    <span class="popup__input_error url-input-error">Введите адрес
+                        сайта.</span>
+                    <button class="popup__save-button popup__save-button_disabled button" disabled type="submit">
+                        Сохранить
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <!-- !попап редактирование профиля -->
+    <div class="popup popup_type_edit-profile ">
+        <div class="popup__container">
+            <button class="popup__close-button button" type="button" aria-label="Закрыть модальное окно"></button>
+            <form class="popup__form " name="popup_edit">
+                <fieldset class="popup__fieldset">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input class="popup__input popup__input_type_name" required type="text" id="name-input" name="name"
+                        placeholder="Имя" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-Я-\s]+$"
+                        data-error-message="Разрешены только латинские и русские буквы, пробелы и тире" />
+                    <span class="popup__input_error name-input-error"></span>
+                    <input class="popup__input popup__input_type_description" required name="description" type="text"
+                        id="about-input" placeholder="Описание" minlength="2" maxlength="200"
+                        attern="^[a-zA-Zа-яА-Я-\s]+$"
+                        data-error-message="Разрешены только латинские и русские буквы, пробелы и тире" />
+                    <span class="popup__input_error about-input-error"></span>
+                    <button class="popup__save-button button" type="submit">
+                        Сохранить
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- попап открытой картинки -->
+    <div class="popup popup_type_open-image ">
+        <figure class="popup__container popup__container_type_image">
+            <div class="popup__image-block">
+                <button class="popup__close-button button" type="button" aria-label="Закрыть Картинку"></button>
+                <img class="popup__image" src="#" alt="">
+            </div>
+            <figcaption class="popup__caption">Описание</figcaption>
+        </figure>
+    </div>
+    <!--  Шаблон карточки  -->
+    <template id="cardTemplate">
+        <li class="element">
+            <div class="element__image-container">
+                <img class="element__image" src="#" alt="" />
+            </div>
+            <button class="element__remove-button button" type="button" aria-label="Удалить."></button>
+            <div class="element__info">
+                <h2 class="element__caption"></h2>
+                <button class="element__like-button button" type="button" aria-label="Нравится."></button>
+            </div>
+        </li>
+    </template>
+    <!-- <script type="module" src="./index.js"></script> -->
+</body>
+
+</html>

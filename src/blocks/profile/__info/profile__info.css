@@ -1,0 +1,25 @@
+.profile__info {
+    display: grid;
+    max-width: 480px;
+    grid-template-areas:
+        "profile__name profile__edit-button"
+        "profile__description profile__description "
+    ;
+    gap: 0px 19px;
+    align-items: center;
+    margin: 0 auto 0 0;
+}
+
+@media screen and (max-width:768px) {
+    .profile__info {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .profile__info {
+        gap: 0 10px;
+        margin: 22.25px auto 36px;
+    }
+}
